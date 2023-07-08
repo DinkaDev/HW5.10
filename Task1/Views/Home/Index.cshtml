@@ -1,0 +1,22 @@
+﻿@model string
+
+<h1>@Model</h1>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            setInterval(function(){
+                $.ajax({
+                url: '/Home/GetMessage',
+                type: 'GET',
+                success: function(result){
+                    $('h1').text(result);
+                },
+                error: function () {
+                    console.log('Error during request.');
+                }
+                });
+            },1000);
+        });
+    </script>
+
